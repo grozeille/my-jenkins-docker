@@ -44,7 +44,8 @@ RUN chmod +x /usr/local/bin/docker-wrapper
 #ENV JENKINS_MASTER http://jenkins:8080
 
 # add needed software for building
-RUN apt-get install -y nodejs npm maven
+RUN apt-get install -y nodejs npm maven \
+  && ln -s /usr/bin/nodejs /usr/bin/node
 
 # run slave
 CMD /bin/bash /cmd.sh
